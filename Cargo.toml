@@ -1,0 +1,2 @@
+[workspace]
+members = ["matrix/rust", "prime_and_odd/rust", "utils"]
