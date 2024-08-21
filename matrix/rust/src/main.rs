@@ -27,7 +27,11 @@ fn main() {
     }
     println!("Result");
     for x in result {
-        let out = x.iter().map(|i| i.to_string()).collect::<Vec<String>>().join("     ");
+        let out = x
+            .iter()
+            .map(|i| i.to_string())
+            .collect::<Vec<String>>()
+            .join("     ");
         println!("{}", out);
     }
 }
@@ -41,7 +45,9 @@ fn setup_matrix(row: usize, column: usize, a: &mut Matrix) {
             if a[x].len() != y + 1 {
                 a[x].push(0);
             }
-            a[x][y] = input(Some(&format!("Enter number [{}][{}]: ", x + 1, y + 1))).parse::<i128>().expect("Failed to parse integer");
+            a[x][y] = input(Some(&format!("Enter number [{}][{}]: ", x + 1, y + 1)))
+                .parse::<i128>()
+                .expect("Failed to parse integer");
         }
     }
 }

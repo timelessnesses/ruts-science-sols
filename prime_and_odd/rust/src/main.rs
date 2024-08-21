@@ -2,20 +2,20 @@ use utils::input;
 
 fn prime(n: isize) -> bool {
     if n <= 1 {
-        return false
+        return false;
     }
     for x in 2..n {
         if n % x == 0 {
-            return false
+            return false;
         }
     }
-    return true
+    return true;
 }
 
 #[allow(dead_code)]
 fn stupid_timeless_prime(n: isize) -> bool {
     if n <= 1 {
-        return false
+        return false;
     }
 
     let mut a = vec![];
@@ -28,15 +28,21 @@ fn stupid_timeless_prime(n: isize) -> bool {
 }
 
 fn odd(n: isize) -> bool {
-    return !(n%2 == 0)
+    return !(n % 2 == 0);
 }
 
 fn main() {
     #[allow(non_snake_case)]
-    let N = input(Some("Enter number of times you want to check numbers: ")).parse::<usize>().unwrap();
+    let N = input(Some("Enter number of times you want to check numbers: "))
+        .parse::<usize>()
+        .unwrap();
     let mut numbers = vec![];
     for x in 0..N {
-        numbers.push(input(Some(&format!("Enter number {}: ", x + 1))).parse::<isize>().unwrap())
+        numbers.push(
+            input(Some(&format!("Enter number {}: ", x + 1)))
+                .parse::<isize>()
+                .unwrap(),
+        )
     }
     println!("Is Prime     |     Is Odd");
     for x in numbers {

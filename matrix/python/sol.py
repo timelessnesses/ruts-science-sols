@@ -3,6 +3,7 @@ Matrix = list[list[int]]
 M = int(input("Rows: "))
 N = int(input("Columns: "))
 
+
 def setup_matrix(row: int, column: int) -> Matrix:
     a: Matrix = []
     for x in range(row):
@@ -13,6 +14,7 @@ def setup_matrix(row: int, column: int) -> Matrix:
                 a[x].append(0)
             a[x][y] = int(input(f"Enter number [{x + 1}][{y + 1}]: "))
     return a
+
 
 print(f"Enter first matrix values ({M}x{N})")
 first_matrix: Matrix = setup_matrix(M, N)
