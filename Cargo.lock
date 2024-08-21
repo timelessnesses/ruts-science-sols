@@ -10,6 +10,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "plots_and_devs"
+version = "0.1.0"
+dependencies = [
+ "utils",
+]
+
+[[package]]
 name = "prime_and_odd"
 version = "0.1.0"
 dependencies = [
