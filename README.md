@@ -8,4 +8,5 @@
 
 ## What is this repository means?
 
-This repository serves as a way to learn how to solve these problems. (In Rust, C and Python)
+This repository serves as a way to learn how to solve these problems. (In Rust, C and Python)  
+Made by Rukchad Wongprayoon from Thung Song School
