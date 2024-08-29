@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int clamp(int n, int min_, int max_) {
-    if (n > max_) return max_;
-    if (n < min_) return min_;
-    return n;
-}
-
 int main() {
     int N, M;
     printf("Plots: ");
@@ -35,16 +29,25 @@ int main() {
             }
         }
 
-        int tallest_near_buildings_together_count = 0;
+        int max_near_buildings_count = 0;
+        int current_count = 0;
+
         for (int j = 0; j < N; j++) {
-            if (BUILDINGS[j] == max_height &&
-                (BUILDINGS[clamp(j - 1, 0, N - 1)] == max_height || BUILDINGS[clamp(j + 1, 0, N - 1)] == max_height)) {
-                tallest_near_buildings_together_count++;
+            if (BUILDINGS[j] == max_height) {
+                current_count++;
+            } else {
+                if (current_count > max_near_buildings_count) {
+                    max_near_buildings_count = current_count;
+                }
+                current_count = 0;
             }
         }
 
-        printf("Max height: %d, Tallest near buildings count: %d\n", max_height, tallest_near_buildings_together_count);
-        printf("\n");
+        if (current_count > max_near_buildings_count) {
+            max_near_buildings_count = current_count;
+        }
+
+        printf("Max height: %d, Tallest near buildings count: %d\n", max_height, max_near_buildings_count);
     }
 
     free(BUILDINGS);

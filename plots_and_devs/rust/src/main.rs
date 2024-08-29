@@ -33,16 +33,15 @@ fn main() {
             BUILDINGS[x as usize] += height_change;
         }
         let max_height = *BUILDINGS.iter().max().unwrap();
-        let mut tallest_near_buildings_together_count = 0;
-        for (i, b) in BUILDINGS.iter().enumerate() {
-            if *b == max_height
-                && (BUILDINGS[clamp(i as isize - 1, 0, N as isize - 1) as usize] == max_height
-                    || BUILDINGS[clamp(i as isize + 1, 0, N as isize - 1) as usize] == max_height)
-            {
-                tallest_near_buildings_together_count += 1;
+        let mut current_count = 0;
+        let mut max_near_buildings_count = 0;
+        for b in BUILDINGS.iter() {
+            if *b == max_height { current_count += 1; }
+            else {
+                if current_count > max_near_buildings_count { max_near_buildings_count = current_count; }
+                current_count = 0;
             }
         }
-        println!("Max height: {max_height}, Tallest near buildings count: {tallest_near_buildings_together_count}");
-        println!("{:#?}", BUILDINGS);
+        println!("Max height: {max_height}, Tallest near buildings count: {max_near_buildings_count}");
     }
 }

@@ -27,14 +27,17 @@ for _ in range(M):
         BUILDINGS[x] += height_change
 
     max_height = max(BUILDINGS)
-    tallest_near_buildings_together_count = 0
-    for i, b in enumerate(BUILDINGS):
-        if b == max_height and (
-            BUILDINGS[clamp(i - 1, 0, N - 1)] == max_height
-            or BUILDINGS[clamp(i + 1, 0, N - 1)] == max_height
-        ):
-            tallest_near_buildings_together_count += 1
+    current_count = 0
+    max_near_buildings_count = 0
+    for b in BUILDINGS:
+        if b == max_height:
+            current_count += 1
+        else:
+            if (current_count > max_near_buildings_count):
+                max_near_buildings_count = current_count
+            current_count = 0
+    if current_count > max_near_buildings_count:
+        max_near_buildings_count = current_count
     print(
-        f"Max height: {max_height}, Tallest near buildings count: {tallest_near_buildings_together_count}"
+        f"Max height: {max_height}, Tallest near buildings count: {max_near_buildings_count}"
     )
-    print(BUILDINGS)

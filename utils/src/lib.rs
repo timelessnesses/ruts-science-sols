@@ -7,6 +7,5 @@ pub fn input(question: Option<&str>) -> String {
 
     let mut out = String::new();
     stdin().read_line(&mut out).unwrap();
-    out.trim();
-    out
+    out.trim_end().to_string()
 }
