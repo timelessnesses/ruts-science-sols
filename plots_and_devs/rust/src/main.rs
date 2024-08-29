@@ -1,15 +1,5 @@
 use utils::input;
 
-fn clamp(n: isize, min: isize, max: isize) -> isize {
-    if n > max {
-        max
-    } else if n < min {
-        min
-    } else {
-        n
-    }
-}
-
 fn main() {
     #[allow(non_snake_case)]
     let N = input(Some("Plots: ")).parse::<usize>().unwrap();

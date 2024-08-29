@@ -1,16 +1,6 @@
 N = int(input("Plots: "))
 M = int(input("Developments: "))
 
-
-def clamp(n: int, min_: int, max_: int) -> int:
-    if n > max_:
-        return max_
-    elif n < min_:
-        return min_
-    else:
-        return n
-
-
 BUILDINGS: list[int] = []
 
 for _ in range(N):
